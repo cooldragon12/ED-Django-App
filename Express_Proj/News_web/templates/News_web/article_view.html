@@ -1,0 +1,100 @@
+
+{% extends "News_web/layout.html" %}
+{% load static %}
+{% block title %}
+    News | {{ title }} 
+{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/artcle_style.css' %}"/>        
+{% endblock %}
+{% block body %}
+    <div id="Main">
+        <div class="image-cont">
+            <div id="main_image" style="background-image: linear-gradient(to bottom, rgba(99, 99, 99, .0), rgba(99, 99, 99, .0), rgba(61, 61, 61, 0.5)), url({{ photo.url }});"></div>
+        </div>
+        <div id="article_section">
+            <div id="id_pub">
+                
+                <h4>{{author}}</h4>
+                {% if not user_tw %}
+                <div class="soc_usr">
+                    <p>facebook_{{ user_fb }}</p>
+                    <p>instagram_{{ user_ig }}</p>
+                </div>
+                {% elif user_tw %}
+                <div class="soc_usr">
+                    <p>facbook_{{ user_fb }}</p>
+                    <p>instagram_{{ user_ig }}</p>
+                    <p>twitter_{{ user_tw }}</p>
+                </div>
+                {% endif %}
+                <div class="cato-cont chc">
+                    <p>{{ category }}</p>
+                </div>
+                
+                <div class="social-link chc">
+                    <div class="list-sc-link">
+                        <div class="soc-item"><a href="https://www.facebook.com/ExPRESSDasma/" class="link-cont" target="_blank" rel="noreferrer noopener">
+                            <img src="{% static 'front_images/facebook.svg'%}" alt="" width="30" height="30"></a></div>
+                        <div class="soc-item"><a href="https://www.instagram.com/express.dasma/" class="link-cont" target="_blank" rel="noreferrer noopener">
+                            <img src="{% static 'front_images/instagram.svg'%}" alt="" width="30" height="30"></a></div>
+                        <div class="soc-item"><a href="https://twitter.com/ExPRESS_Dasma/" class="link-cont" target="_blank" rel="noreferrer noopener">
+                            <img src="{% static 'front_images/twitter.svg'%}" alt="" width="30" height="30"></a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="main_content">
+                <div class="headline-cont">
+                    <h1 class="header">{{ title }}</h1>
+                </div>
+                <div class="date_cont chc">
+                    <h3 class='date_pub'>{{date}}</h3>
+                </div>
+                <p class="body_article">
+                    {{ content|linebreaks|safe}}
+                    <img src="{{ photo.url }}" alt="image_article" class="image_sec dark">
+                </p>
+            </div> 
+            <div id="related_link">
+                <h2>Other Articles</h2>
+                <div class="article-list" id="article-list">
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <script>
+        var change = document.querySelectorAll(".chc")
+        for (i = 0; i < change.length; i++){
+            change[i].style.backgroundColor = "{{color}}"
+        }
+        var current = document.querySelector(".header").innerHTML
+        const cont = document.getElementById("article-list")
+        var url = "http://127.0.0.1:8000/api/article/?category={{ category.categr_id }}&date_published=&trending="
+        fetch(url)
+        .then(resp => resp.json())
+        .then(data=>{
+            console.log(data)
+            for (i = 0; i< data.length; i++){
+                art = data[i]
+                if (i == 5){
+
+                }else{
+                    if (current == art.headline){}else{
+                    tmp = `<div class="item-cont">
+                    <a class="item-link" href="${ art.get_absolute_url }">
+                        <h3>${art.headline}</h3>
+                    </a>
+                    </div>
+                    `
+                    cont.innerHTML += tmp
+                }
+                }
+                
+                
+                
+            }
+        })
+    </script>
+{% endblock %}

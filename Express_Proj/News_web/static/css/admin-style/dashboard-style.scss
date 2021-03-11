@@ -1,0 +1,172 @@
+$veryLight: #E1E1E1;
+$littleGray: #888888;
+$mchGray: #717171;
+$darkergray: #505050;
+$lightred:#E2494B;
+$darkerred:#C63E40;
+$mainred:#D53436;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap');
+
+
+body{
+    font-family: 'Roboto';
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+.nvbars{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: $veryLight;
+    flex-grow: 1;
+    z-index: 1;
+    position: fixed;
+    width: 16rem;
+    height: 100vh;
+    border-radius: 0 1rem 1rem 0;
+    margin: 0;
+    .side{
+        display: block;
+        width: 100%;
+        .logo{
+            position: relative;
+            display: block;
+            width: 5.3rem;
+            height: 4.3rem;
+            z-index: 3;
+            margin: 2rem 5rem;
+        }
+        .compose_bttn{
+            display: block;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            background-color: $mainred;
+            color: $veryLight;
+            border-radius: 2rem;
+            font-size: 14px;
+            padding: 15px 30px 15px 30px;
+            margin: 2.5rem 3rem;
+            transition: background-color 200ms linear;
+            span{
+                margin-top: 1rem;
+            }
+        }
+        .compose_bttn:hover, .compose_bttn:focus{
+            background-color: $darkergray;
+            color: $veryLight;
+        }
+        .main_nav{
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+            display: block;
+            overflow: hidden;
+            width: 100%;
+            .h1e{
+               width: 100%;
+            }
+            .h1e a{
+                display: inline-block;
+                font-weight: bold;
+                font-size: 13px;
+                text-decoration: none;
+                padding: 1rem 80% 1rem 3rem;
+                
+                color: $littleGray;
+                
+            }
+            .h1e a:hover,  .h1e a:focus{
+                background-color:#e2494c33;
+                color: $lightred;
+                border-top: 1rem $lightred;
+                border-bottom: 1rem $lightred;
+            }
+        }
+    }
+
+    
+
+}
+.title{
+    display: flex;
+    position: absolute;
+    color: $darkergray;
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    left: 20rem;
+}
+.profile-container{
+    display: flex;
+    flex-direction: row;
+    z-index: 1;
+    position: absolute;
+    top: 1rem;
+    right: 5rem;
+    justify-content: center;
+    .profile{
+        width: 40px;
+        height: 40px;
+        clip-path: circle(45% at 50% 50%);
+        position: relative;
+        margin: .4rem;
+    }
+    //Fixed Arrow Down up
+    .dropdown{
+        
+        width: 1rem;
+        height: 1rem;
+        padding: .5rem;
+        margin: .53rem;
+        // transition: transform 175ms linear;
+        position: relative;
+        border-radius: 100%;
+        transform-origin: center;
+        &:hover{
+            background-color: #cbc9c9;
+        }
+    }
+    .container-dropdown{
+        position: absolute;
+        margin: 0;
+        top: 2.2rem;
+        width: 100%;
+        clip-path: ellipse(50% 50% at 50% -50%);
+        .droplist{
+            display: block;
+            overflow: hidden;
+            width: 100%;
+            padding: 0;
+            border-radius: 0 0 1rem 1rem;
+            li{
+                list-style: none;
+                background-color: $veryLight;
+                justify-content: center;
+                width: 100%;
+                
+                a{
+                    display: inline-block;
+                    text-decoration: none;
+                    font-family: Verdana;
+                    font-size: .8rem;
+                    margin: 0;
+                    padding: 1rem 60% 1rem 1rem;
+                    color:$mchGray;
+                    transition: background-color 400ms ;
+                }
+                a:hover, a:focus{
+                    background-color: $littleGray;
+                    color: $veryLight;
+                }
+            }
+        }
+        
+    }    
+    .in{
+        display: block;
+    }
+}

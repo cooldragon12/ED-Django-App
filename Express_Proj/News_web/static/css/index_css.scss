@@ -1,0 +1,654 @@
+$main-color: #ca2124;
+$base-color: #e7e7e6;
+$gray:#d1d1d1;
+$darker-gray:#8d8d8d;
+$dark:rgb(99, 99, 99);
+$black:#383838;
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+//Scroll Bar Style========Fixed---
+::-webkit-scrollbar{
+    opacity: 0;
+    width: 5px;
+    height: 3px;
+    transition: opacity .8s;
+}
+::-webkit-scrollbar{
+    &:hover{
+        opacity: 1;
+    }
+}
+::-webkit-scrollbar-track {
+    
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb{
+    transition: opacity .45s;
+    background-color: $main-color;
+    border-radius: 10px;
+    opacity: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+opacity: 1;
+}
+//========================================
+
+//Desktop View============================
+@media (min-width: 721px){
+.gen-body-cont{
+    overflow-x: hidden;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    top: 3rem;
+    width: 100vw;
+    height: max-content; 
+    .latest-top{
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 55vh;
+        //Right Side Image and Button
+        .focus-cont{
+            width: 60%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            justify-content: left;
+            display: flex;
+            align-content: center;
+            overflow: hidden;
+                
+            #next{
+                cursor: pointer;
+                position: absolute;
+                z-index: 2;
+                right: 0;
+                width: 6%;
+                height: 100%;
+                background-color: #38383869;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: width 0.2s;
+                backdrop-filter: blur(2px);
+                .right{
+                    transform: rotate(-90deg);
+                    width: 2rem;
+                    transition: width 0.1s;
+                }
+                &:hover{
+                    width: 7%;
+                    .right{
+                        width: 1.7rem;
+                    }
+                }
+            }
+            #prev{
+                cursor: pointer;
+                z-index: 2;
+                position: absolute;
+                left: 0;
+                width: 6%;
+                height: 100%;
+                background-color: #38383869;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: width 0.2s;
+                backdrop-filter: blur(2px);
+                .left{
+                    transform: rotate(90deg);
+                    width: 2rem;
+                    transition: width 0.1s;
+                }
+                &:hover{
+                    width: 7%;
+                    .left{
+                        width: 1.7rem;
+                    }
+                }
+            }
+            .phot-cont{ //Photo Holder
+                z-index: 1;
+                height: 100%;
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                .slide-photo{
+                    min-width: 100%;
+                    height: 100%;
+                    position: relative;
+                    .back-photo{ //Photo Items
+                        width: 100%;
+                        height: 50vw;
+                        background-repeat: no-repeat;
+                        background-clip: border-box;
+                        background-position: center;
+                        background-size: cover;  
+                    }
+                }
+            }
+        }
+        //Left Content
+        .text-cont{ // Left Container
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            height: 100%;
+            width: 40%;
+            position: relative;
+            // backdrop-filter: blur(5px);
+            box-shadow: 1px 0px 6px 1px #33333375;
+            background-color: $black;
+            overflow: hidden;
+            .texts-holder{
+                height: 100vh;
+                width: fit-content;
+                display: flex;
+                flex-direction: column;
+                visibility: visible;
+                .parent-cons{
+                    width: 100%;
+                    height: 67vh;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+                    .text-cons{//Items Content
+                        display: flex;
+                        flex-direction: column;
+                        width: 80%;
+                        height: 80%;
+                        justify-content: center;
+                        margin: 0;
+                        h1{
+                            margin: 1rem 0rem;
+                            text-align: right;
+                            color: $main-color;
+                            font-size: 5rem;
+                            font-weight: bolder;
+                            font-stretch: semi-condensed;
+                        }
+                        p{
+                            margin: 0.5rem 0rem;
+                            text-align: right;
+                            color: $base-color;
+                            font-size: 1.3rem;
+                            font-weight: bold;
+                        }
+                        a{
+                            text-align: right;
+                            margin: 0;
+                            font-size: 0.9rem;
+                            color: $base-color;
+                        }
+                    }    
+                }
+            }
+        }
+    }
+
+
+    //Lower Content=======================================
+    .container-down{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-direction: row;
+        width: 100vw;
+        margin-top: 1rem;
+        .section-left{
+            display: flex;
+            flex-direction: column;
+            width: 70%;
+            margin-right: 3rem;
+            
+            .cont{
+                display: flex;
+                position: relative;
+                flex-direction: column;
+                margin-top: 1rem;
+                justify-content: center;
+                align-content: center;
+                
+                h1{
+                    font-size: 3rem;
+                    margin: 0.5rem 1rem;
+                    color: $main-color;
+                }
+                .slide-container{
+                    height: 20vh;
+                    width: 100%;
+                    overflow-x: scroll;
+                    white-space: nowrap;
+                    overflow-y: hidden;
+                    a{
+                        //Link Holder
+                        display: inline-block;
+                        width: 25vw;
+                        height: 100%;
+                        text-decoration: none;
+                        margin: 0rem .5rem ;
+                        white-space: normal;
+                        //Cardholder ---
+                        .card-holder{
+                            //===Animation Applied===
+                            animation-name: fade;
+                            animation-duration: 1.5s;
+                            //General Style
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            border-radius: 10px;
+                            position: relative;
+                            background-color: #383838;
+                            
+                            
+                            .item-cont{
+                                background-color: $black;
+                                opacity: 0;
+                                position: absolute;
+                                width: 100%;
+                                height: 100%;
+                                z-index: 2;
+                                border-radius: 10px;
+                                transition: opacity 0.2s;
+                            }
+                            h4{
+                                transition: margin 0.3s, bottom 0.5s;
+                                position: absolute;
+                                bottom: -5rem;
+                                color: #ffffff;
+                                margin: 0% 0%;
+                                font-size: 1.2rem;
+                                opacity: 1;
+                                z-index: 3;
+                            }
+                            &:hover{
+                                .item-cont{
+                                    opacity: 0.6;
+                                }
+                                h4{
+                                    
+                                    bottom: 0rem;
+                                    margin: 3% 3%;
+                                }
+                            }
+                            //Content Container --- Background Picture
+                            .artima-m{
+                                border-radius: 10px;
+                                background-size: cover;
+                                background-position: center;
+                                width: 100%;
+                                height: 100%;
+                                justify-content: right;
+                                position: relative;
+                                overflow: hidden;
+                                opacity: 1;
+                                
+                                //Only Text
+                                
+                            }
+                        }
+                    }//Link Holder===End
+                }//Slide Container===End
+            }
+        }
+        //Right Section
+        .section-right{
+            width: 22%;
+            height: 60vh;
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            margin-top: 1rem;
+            background-color: $base-color;
+            .changeable{
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                width: 90%;
+                height: 90%;
+                h1{
+                    position: absolute;
+                    color: $main-color;
+                    margin: 0;
+                    padding: 0;
+                    top: 0;
+                    font-size: 2.5rem;
+                }
+                h2{
+                    position: absolute;
+                    color:$black;
+                    margin:0;
+                    top: 2.2rem;
+                    font-size: 2.5rem;
+                    padding: 0;
+                }
+            }
+        }
+    }
+    
+}
+
+}
+
+
+// ------ Card Style -----
+
+
+//Mobile==========================================
+@media (max-width: 720px){
+    .gen-body-cont{
+            overflow-x: hidden;
+            display: flex;
+            position: absolute;
+            flex-direction: column;
+            justify-content: center;
+            top: 3rem;
+            width: 100vw;
+            
+            .latest-top{
+                display: block;
+                flex-direction: column-reverse;
+                align-content: center;
+                position: relative;
+                overflow: hidden;
+                width: 100%;
+                height: 40vh;
+                background-color: #383838;
+
+                &:hover{
+                    .text-cont{
+                        opacity: 1;
+                    }
+                    
+                }
+                .focus-cont{//Right Panel
+                    
+                    width: 100%;
+                    height: 100%;
+                    overflow: hidden;
+                    position: relative;
+                    justify-content: left;
+                    display: flex;
+                    align-content: center;
+                    transition: opacity 0.1s;
+                    #next{
+                        cursor: pointer;
+                        position: absolute;
+                        z-index: 2;
+                        right: 0;
+                        width: 6%;
+                        height: 100%;
+                        background-color: #38383869;
+                        backdrop-filter: blur(2px);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        transition: width 0.2s;
+                        .right{
+                            transform: rotate(-90deg);
+                            width: 2rem;
+                            transition: width 0.1s;
+                        }
+                        &:hover{
+                            width: 7%;
+                            .right{
+                                width: 1.7rem;
+                            }
+                        }
+                    }
+                    #prev{
+                        cursor: pointer;
+                        z-index: 2;
+                        position: absolute;
+                        left: 0;
+                        width: 6%;
+                        height: 100%;
+                        background-color: #38383869;
+                        backdrop-filter: blur(2px);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        transition: width 0.2s;
+
+                        .left{
+                            transform: rotate(90deg);
+                            width: 2rem;
+                            transition: width 0.1s;
+                        }
+                        &:hover{
+                            width: 7%;
+                            .left{
+                                width: 1.7rem;
+                            }
+                        }
+                    }
+                    .phot-cont{ //Photo Holder
+                        z-index: 1;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        width: 100%;
+                        .slide-photo{
+                            min-width: 100%;
+                            height: 100%;
+                            position: relative;
+                            .back-photo{ //Photo Items
+                                width: 100%;
+                                height: 70vw;
+                                background-repeat: no-repeat;
+                                background-clip: border-box;
+                                background-position: center;
+                                background-size: cover;  
+                            }
+                        }
+                    }
+                }
+                .text-cont{ // Left Container
+                    opacity: 0.6;
+                    display: flex;
+                    align-content: center;
+                    justify-content: center;
+                    height: 100%;
+                    width: 100%;
+                    position: absolute;
+                    z-index: 1;
+                    bottom: 0;
+                    // backdrop-filter: blur(5px);
+                    box-shadow: 1px 0px 6px 1px #33333375;
+                    overflow: hidden;
+                    transition: opacity 0.3s;
+                    .texts-holder{
+                        
+                        height: 100vh;
+                        width: fit-content;
+                        display: flex;
+                        flex-direction: column;
+                        visibility: visible;
+                        .parent-cons{
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            position: relative;
+                            .text-cons{//Items Content
+                                display: flex;
+                                flex-direction: column;
+                                width: 80%;
+                                height: 70%;
+                                justify-content: center;
+                                margin: 0;
+                                h1{
+                                    margin: 0;
+                                    text-align: right;
+                                    color: $main-color;
+                                    font-size: 3em;
+                                    font-weight: bolder;
+                                    font-stretch: semi-condensed;
+                                }
+                                p{
+                                    margin: 0;
+                                    text-align: right;
+                                    color: $base-color;
+                                    font-size: 1em;
+                                    font-weight: bold;
+                                }
+                                a{
+                                    text-align: right;
+                                    margin: 0;
+                                    font-size: 0.7rem;
+                                    color: $base-color;
+                                }
+                            }    
+                        }
+                    }
+                }
+            }
+    .container-down{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+        width: 100vw;
+        margin-top: 2.5rem;
+        .section-left{
+            display: flex;
+            flex-direction: column;
+            width: 100%; 
+            .cont{
+                display: flex;
+                position: relative;
+                flex-direction: column;
+                width: 100vw;
+                margin-top:3rem;
+                h1{
+                    font-size: 2.5rem;
+                    margin: 0.5rem 1rem;
+                    color: $main-color;
+                }
+                .slide-container{
+                    
+                    height: 25vh;
+                    width: 100%;
+                    overflow-x: scroll;
+                    white-space: nowrap;
+                    overflow-y: hidden;
+                    a{
+                        //Link Holder
+                        display: inline-block;
+                        width: 50vw;
+                        height: 100%;
+                        text-decoration: none;
+                        margin: 0rem .5rem ;
+                        white-space: normal;
+                        //Cardholder ---
+                        .card-holder{
+                            //===Animation Applied===
+                            animation-name: fade;
+                            animation-duration: 1.5s;
+                            //General Style
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            border-radius: 10px;
+                            position: relative;
+                            background-color: $black;
+                            .item-cont{
+                                background-color: $black;
+                                opacity: 0;
+                                position: absolute;
+                                width: 100%;
+                                height: 100%;
+                                z-index: 2;
+                                border-radius: 10px;
+                                transition: opacity 0.2s;
+                            }h4{
+                                
+                                position: absolute;
+                                bottom: -5rem;
+                                color: #e7e7e6;
+                                margin: 0% 0%;
+                                font-size: 1.2rem;
+                                z-index: 3;
+                            }
+                            &:hover{
+                                .item-cont{
+                                    opacity: 0.6;
+                                }
+                                h4{
+                                    
+                                    bottom: 0rem;
+                                    margin: 3% 3%;
+                                }
+                            }
+                        //Content Container --- Background Picture
+                        .artima-m{
+                            border-radius: 10px;
+                            background-size: cover;
+                            background-position: center;
+                            width: 100%;
+                            height: 100%;
+                            justify-content: left;
+                            position: absolute;
+                        }
+                        //Only Text
+                        
+                        }
+                    }
+                }
+            }
+            
+        }
+        //Right Section
+        .section-right{
+            width: 90%;
+            height: 60vh;
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            margin-top: 1rem;
+            background-color: $base-color;
+            .changeable{
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                width: 90%;
+                height: 90%;
+                h1{
+                    position: absolute;
+                    color: $main-color;
+                    margin: 0;
+                    padding: 0;
+                    top: 0;
+                    font-size: 2.5rem;
+                }
+                h2{
+                    position: absolute;
+                    color:$black;
+                    margin:0;
+                    top: 2.2rem;
+                    font-size: 2.5rem;
+                    padding: 0;
+                }
+            }
+        }
+    }
+    
+    
+    }
+}

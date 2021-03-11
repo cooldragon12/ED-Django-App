@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>ExPRESS Dasmariñas</title>
+        <link rel="stylesheet" href="index_css.css"/>
+        <link rel="stylesheet" href="style_main.css"/>
+        
+        <link rel="shortcut icon" href="{% static 'css/front_images/favicon.ico' %}" type="image/x-icon">
+    </head>
+    <body>
+        <div class="cover"id="cover" onclick="closeSide()"></div>
+        <div class="nvbars" id="nvbars">
+            <nav class="uppper dark">
+                <div id="logo" style="background-image: url('X-Light 2.png');" ></div>
+                <div class="burBut" id="burBut" onclick="openSide()"></div>
+                <ul id="sideBar" class="main_nav">
+                    <li class='h1e dark'><a href="">Home</a></li>
+                    <li class='h1e dark'><a href="">Category</a></li>
+                    <li class='h1e dark'><a href="">About</a></li>
+                    <li class='h1e dark'><a href="">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="gen-body-cont">
+            <div class="latest-top">
+                <div class="focus-cont">
+                    <div id="photoholder"class="phot-cont" style="background-image: url(IMG_20210119_132358.jpg);"></div>
+                </div>
+                <div class="sideslide-cont">
+                    <div class="slids"><p>1</p></div>
+                    <div class="slids"><p>1</p></div>
+                    <div class="slids"><p>1</p></div>
+                    <div class="slids"><p>1</p></div>
+                </div>
+            </div>
+            <div class="atrending-cont cont">
+                <h1>TRENDING</h1>
+                <div class="slide-container"id='trending-cont'>
+    
+                </div>
+            </div>
+            <div class="athe">
+                <div class="anews-cont cont">
+                    <h1>NEWS</h1>
+                    <div class="slide-container" id="news-cont">
+        
+                    </div>
+                </div>
+                <div class="anews-cont cont">
+                    <h1>NEWS</h1>
+                    <div class="slide-container" id="news-cont">
+        
+                    </div>
+                </div>
+                <div class="anews-cont cont">
+                    <h1>NEWS</h1>
+                    <div class="slide-container" id="news-cont">
+        
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+        
+        <script>
+            var i = document.getElementById("sideBar");
+            var j = document.getElementById("cover");
+            function openSide() {
+                i.classList.add("openside");
+                j.style.visibility= "visible";
+                j.style.opacity= "1";
+            }
+            function closeSide() {
+                i.classList.remove("openside");
+                j.style.visibility= "hidden";
+                j.style.opacity= "0";
+            }
+        </script>
+    </body>
+</html>

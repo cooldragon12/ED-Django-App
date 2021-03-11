@@ -1,0 +1,197 @@
+* {
+  font-family: 'Segoe UI';
+}
+
+body {
+  margin: 0;
+  margin: 0;
+}
+
+#main_vak {
+  height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-blend-mode: multiply;
+  background-image: radial-gradient(#e7e7e6 0%, #e7e7e6 20%, #888888 100%);
+  background-repeat: repeat-x;
+  background-size: 200vw;
+  background-position: 0rem, 0rem;
+}
+
+#main_vak .back_logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  right: -40vw;
+  top: 0vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 80vw;
+  opacity: .1;
+  -webkit-filter: blur(20%);
+          filter: blur(20%);
+}
+
+.container_form {
+  position: absolute;
+  background-image: -webkit-gradient(linear, to-right, from(#E2494B), to(#505050));
+  background-image: linear-gradient(to-right, #E2494B, #505050);
+  width: 22rem;
+  height: 24rem;
+  border-radius: 1rem;
+  -webkit-box-shadow: 1px 0px 4px 0px #5959594a;
+          box-shadow: 1px 0px 4px 0px #5959594a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-backdrop-filter: blur(2rem);
+          backdrop-filter: blur(2rem);
+}
+
+.container_form #form_au {
+  opacity: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.container_form #form_au .errorlist {
+  display: none;
+}
+
+.container_form #form_au p {
+  margin: .5rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: .8rem;
+  color: #E2494B;
+}
+
+.container_form #form_au h1, .container_form #form_au h2 {
+  color: #505050;
+  margin: 0;
+}
+
+.container_form #form_au h2 {
+  color: #E2494B;
+}
+
+.but-ani span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.but-ani span:after {
+  content: '\00bb';
+  font-size: 1.5rem;
+  position: absolute;
+  opacity: 0;
+  top: -.7rem;
+  right: -20px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.but-ani:hover span {
+  padding-right: 25px;
+}
+
+.but-ani:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.but-ani {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  border-radius: .7rem;
+  margin-top: .1rem;
+  background-color: linear-gradien(45deg, #c9c9c977, #E1E1E1);
+  padding: 1.2rem 1rem 1.2rem 1rem;
+  -webkit-box-shadow: 0px 0px 6px 0px #8d8d8d42;
+          box-shadow: 0px 0px 6px 0px #8d8d8d42;
+}
+
+.but-ani:hover {
+  color: #e7e7e6;
+  background-color: #E2494B;
+}
+
+.username-cont, .password-cont {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 3rem;
+  width: 17rem;
+  margin: .5rem;
+}
+
+#id_username, #id_password {
+  width: 15rem;
+  height: 2rem;
+  border: none;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.301);
+  border: 1px solid linear-gradien(45deg, #c9c9c977, #E1E1E1);
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.167);
+          box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.167);
+  border-radius: 1rem;
+  padding: .5rem 1rem;
+  -webkit-transition: border .4s;
+  transition: border .4s;
+}
+
+#id_username:focus, #id_password:focus {
+  border: none;
+  outline: none;
+  border: 1px solid #79010388;
+}
+/*# sourceMappingURL=log1n_style_42.css.map */

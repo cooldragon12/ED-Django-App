@@ -1,0 +1,76 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="{% static 'css/admin-style/dashboard-style.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/admin-style/add_article_tab.css' %}">
+        <link rel="shortcut icon" href="{% static 'front_images/favicon.ico' %}" type="image/x-icon">
+        <script src="{% static 'handlebars-v4.7.6.js' %}"></script>
+    </head>
+    <body>
+        {% if user.is_authenticated %}
+            <div id="loading_screen">
+                
+            </div>
+            <div class="nvbars">
+                <nav class="side open dark">
+                    <img src="{% static '/front_images/ExPress-admin.png' %}" alt="logo" class="logo open" >
+                    <a href="{% url 'create_new' %}"class="compose_bttn" id="compose_bttn"><span >COMPOSE</span></a>
+                    <ul class="main_nav dark">
+                        <li class='h1e dark'><a href="{% url 'dashboard' %}">DASHBOARD</a></li>
+                        <li class='h1e dark'><a href="#">ANALYTICS</a></li>
+                        <li class='h1e dark'><a href="#">LIBRARY</a></li>
+                        <li class='h1e dark'><a href="#">SETTINGS</a></li>       
+                    </ul>
+                </nav>
+            </div>
+            <div class="profile-container">
+                <img class="profile" src="{% static '/images/admin_profiles/default-profile.png' %}" alt="profile" width="10" height="10">
+                <p>{{ name_full }}</p>
+                <img id="dropdown"class="dropdown" src="{% static '/front_images/arrow_down.svg' %}" alt=""></img>
+                <br>
+                <div class="container-dropdown" >
+                    <ul class="droplist">
+                        <li><a href="{% url 'acc_settings' %}">Account Setting</a></li>
+                        <li><a href="{% url 'logout_view' %}">Logout</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+            {% block subtitle %}
+            {% endblock %}
+            {% block body %}
+
+            {% endblock %}
+            {% block create %}
+            {% endblock %}
+            <!-- <script src="{% static 'js-temp-cmpose.js' %}"></script> -->
+            
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/CSSRulePlugin.min.js" integrity="sha512-6MT8e40N5u36Um5SXKtwZmoKcCSg1XaKtexnXZPpQ4iJDHrBEHXKz37fnDovXezsaCd4oKCH5Y+vrcl7qpLPoA==" crossorigin="anonymous"></script>
+            <script>
+                var drop = document.getElementById('dropdown');
+                var tr = gsap.timeline({defaults: {ease: "power1.in"}})
+
+                var toggle = false;
+
+                tr.to('.dropdown', {
+                    transform: 'rotate(180deg)', transformOrigin:'center'
+                })
+                tr.to( '.container-dropdown',{
+                    'clipPath' : 'ellipse(100% 100% at 50% 50%)'
+                }, "-=.3")
+                tr.pause();
+                drop.addEventListener('click', ()=>{
+                    toggle = !toggle;
+                    if(toggle ? tr.play() : tr.reverse());
+                })
+            </script>
+        {% endif %}
+
+    </body>
+</html>

@@ -1,0 +1,11 @@
+djangorestframework
+django
+django-filter
+selenium
+uuid
+# uWSGI==2.0.19
+MySQLClient
+Pillow
+django-mysql-rds
+
+

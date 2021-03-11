@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap");
+body {
+  font-family: 'Roboto';
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+.nvbars {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  background-color: #E1E1E1;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  z-index: 1;
+  position: fixed;
+  width: 16rem;
+  height: 100vh;
+  border-radius: 0 1rem 1rem 0;
+  margin: 0;
+}
+
+.nvbars .side {
+  display: block;
+  width: 100%;
+}
+
+.nvbars .side .logo {
+  position: relative;
+  display: block;
+  width: 5.3rem;
+  height: 4.3rem;
+  z-index: 3;
+  margin: 2rem 5rem;
+}
+
+.nvbars .side .compose_bttn {
+  display: block;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  background-color: #D53436;
+  color: #E1E1E1;
+  border-radius: 2rem;
+  font-size: 14px;
+  padding: 15px 30px 15px 30px;
+  margin: 2.5rem 3rem;
+  -webkit-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
+}
+
+.nvbars .side .compose_bttn span {
+  margin-top: 1rem;
+}
+
+.nvbars .side .compose_bttn:hover, .nvbars .side .compose_bttn:focus {
+  background-color: #505050;
+  color: #E1E1E1;
+}
+
+.nvbars .side .main_nav {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+}
+
+.nvbars .side .main_nav .h1e {
+  width: 100%;
+}
+
+.nvbars .side .main_nav .h1e a {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 13px;
+  text-decoration: none;
+  padding: 1rem 80% 1rem 3rem;
+  color: #888888;
+}
+
+.nvbars .side .main_nav .h1e a:hover, .nvbars .side .main_nav .h1e a:focus {
+  background-color: #e2494c33;
+  color: #E2494B;
+  border-top: 1rem #E2494B;
+  border-bottom: 1rem #E2494B;
+}
+
+.title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  color: #505050;
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  left: 20rem;
+}
+
+.profile-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  z-index: 1;
+  position: absolute;
+  top: 1rem;
+  right: 5rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.profile-container .profile {
+  width: 40px;
+  height: 40px;
+  -webkit-clip-path: circle(45% at 50% 50%);
+          clip-path: circle(45% at 50% 50%);
+  position: relative;
+  margin: .4rem;
+}
+
+.profile-container .dropdown {
+  width: 1rem;
+  height: 1rem;
+  padding: .5rem;
+  margin: .53rem;
+  position: relative;
+  border-radius: 100%;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+
+.profile-container .dropdown:hover {
+  background-color: #cbc9c9;
+}
+
+.profile-container .container-dropdown {
+  position: absolute;
+  margin: 0;
+  top: 2.2rem;
+  width: 100%;
+  -webkit-clip-path: ellipse(50% 50% at 50% -50%);
+          clip-path: ellipse(50% 50% at 50% -50%);
+}
+
+.profile-container .container-dropdown .droplist {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  border-radius: 0 0 1rem 1rem;
+}
+
+.profile-container .container-dropdown .droplist li {
+  list-style: none;
+  background-color: #E1E1E1;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.profile-container .container-dropdown .droplist li a {
+  display: inline-block;
+  text-decoration: none;
+  font-family: Verdana;
+  font-size: .8rem;
+  margin: 0;
+  padding: 1rem 60% 1rem 1rem;
+  color: #717171;
+  -webkit-transition: background-color 400ms;
+  transition: background-color 400ms;
+}
+
+.profile-container .container-dropdown .droplist li a:hover, .profile-container .container-dropdown .droplist li a:focus {
+  background-color: #888888;
+  color: #E1E1E1;
+}
+
+.profile-container .in {
+  display: block;
+}
+/*# sourceMappingURL=dashboard-style.css.map */

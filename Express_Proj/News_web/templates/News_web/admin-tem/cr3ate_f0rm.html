@@ -1,0 +1,241 @@
+{% extends "News_web/admin-tem/layout_admin.html" %}
+
+{% load static %}
+{% block title %}
+Create New Article | User
+{% endblock %}
+
+{% block create %}
+
+
+    <div class="ms-cont-back ms-active" id="ms-cont-back"></div>
+    <div class="compose-container msactive1" id="compose-container" aria-modal="true">
+        <div class="title-ms">
+            <h2>Create New Article</h2>
+            <img src="{% static '/front_images/close.svg' %}" alt="" id="ms-closer" class="ms-closer">
+        </div>
+
+        <form action="{% url 'create_new' %}" method="post" name="publishNew" id="publishNew">
+            {% csrf_token %}
+            <div class="page-article">
+                <div class="article-title">
+                    <!-- <label for="">Headline</label> -->
+                <!-- <input type="text" id="headline" name="Headline" placeholder="Headline" > -->
+                {{ form.category }}<br>
+                {{ form.headline }}
+                <!-- <input list="category" name="category"> --> 
+               
+                <!-- <datalist id="category">
+                </datalist> -->
+                </div>
+                <div class="content-art">
+                    <!-- <textarea name="Article-Content" id="content-textarea" cols="30" rows="10" placeholder="Article Contents"></textarea> --> 
+                    {{form.body}}
+                </div>
+                <div class="bttn-section"id="bttn-section">
+                    <div class="bttn p-next">NEXT</div>
+                </div>
+            </div>
+            
+            <div class="page-media">
+                <div class="photo-container" id="photo-container">
+                    <input type="file" class="fileElem"id="fileElem" name="fileElem" multiple accept="image/*">
+                    
+                    <label class="promt-input" for="fileElem">Drop Photo Here</label>
+                </div>
+                <div class="addtnl-photos">
+                    <div class="contain-add">
+                        <img src="{%static 'front_images/add-sign.svg'%}" alt="" class="photo-add" id="photo-add">
+                    </div>
+                </div>
+                <div class="bttn-section"id="bttn-section">
+                    <div class="bttn p-previous">PREVIOUS</div>
+                    <img src="{% static 'front_images/settings.svg' %}" alt="" id="schedBtn"class="schedBtn" onclick="openSched()">
+                    <div onclick="publishBtnSub('publishNew')" class="bttn p-submit">PUBLISH</div>
+                </div>
+            </div>
+            <br>
+            <div class="post-scheduler-cont">
+                <div class="back-sched">
+                    <img src="{% static 'front_images/arrow_down.svg' %}" alt="" id="backBtn">
+                    <div class="cont-sche">
+                        <div class="currenTime-cont">
+                            <input type="checkbox" name="current_check" id="current_check" checked onclick="setandNow()">
+                            <label for="current_check" class="label_current_time">Post Now</label>
+                            <p class="dateNow"></p>
+                        </div><br>
+                        <div class="set-time-cont">
+                            <label for="date_published"class="label_current_time">Set Time/Date</label>
+                            <input type="date" name="date_published" id="date_published"disabled>
+                            <input type="time" name="time_sche" id="time_sche"disabled>
+                        </div>
+                        <div onclick="publishBtnSub('publishNew')" class="p-submit">PUBLISH</div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+    
+    <script src="{% static 'tems-addr.js' %}"></script>
+    <script>
+        let sched_cont_main=document.querySelector('.post-scheduler-cont');
+        let sched_back = document.querySelector('.back-sched');
+        let backBtn = document.getElementById('backBtn');
+        function openSched(){
+            sched_cont_main.style.visibility = 'visible'
+            sched_cont_main.style.opacity = '1'
+            sched_back.style.marginBottom = "0";
+        };
+        backBtn.addEventListener("click", ()=>{
+            sched_cont_main.style.visibility = 'hidden'
+            sched_cont_main.style.opacity = '0'
+            sched_back.style.marginBottom = "-7rem";
+        })
+        document.querySelectorAll(".fileElem").forEach((inputElement) => {
+                const dropZoneElement = inputElement.closest(".photo-container");
+
+                dropZoneElement.addEventListener("click", (e) => {
+                inputElement.click();
+            });
+
+            inputElement.addEventListener("change", (e) => {
+                if (inputElement.files.length) {
+                    updateThumbnail(dropZoneElement, inputElement.files[0]);
+            }
+            });
+
+            dropZoneElement.addEventListener("dragover", (e) => {
+                e.preventDefault();
+                dropZoneElement.style.borderStyle = 'dashed'
+                dropZoneElement.style.borderColor = '#888888'
+            });
+
+            ["dragleave", "dragend"].forEach((type) => {
+                dropZoneElement.addEventListener(type, (e) => {
+                dropZoneElement.style.borderStyle = 'dashed'
+                dropZoneElement.style.borderColor = '#888888'
+            });
+        });
+
+        dropZoneElement.addEventListener("drop", (e) => {
+            e.preventDefault();
+
+            if (e.dataTransfer.files.length) {
+                inputElement.files = e.dataTransfer.files;
+                updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
+            }
+            dropZoneElement.style.borderStyle = 'solid'
+            
+        });
+    function updateThumbnail(dropZoneElement, file) {
+        let thumbnailElement = dropZoneElement.querySelector(".output");
+
+        // First time - remove the prompt
+        if (dropZoneElement.querySelector(".promt-input")) {
+            dropZoneElement.querySelector(".promt-input").remove();
+        }
+
+        // First time - there is no thumbnail element, so lets create it
+        if (!thumbnailElement) {
+            thumbnailElement = document.createElement("div");
+            thumbnailElement.classList.add("output");
+            dropZoneElement.appendChild(thumbnailElement);
+        }
+
+        thumbnailElement.dataset.label = file.name;
+
+        // Show thumbnail for image files
+        if (file.type.startsWith("image/")) {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => {
+                shr = thumbnailElement.style
+                shr.backgroundImage = `url('${reader.result}')`;
+                shr.borderRadius = "1rem";
+                shr.width = "100%";
+                shr.height = "100%";
+                shr.overflow= "hidden";
+                shr.backgroundSize = "contain";
+                shr.position = "relative";
+                shr.backgroundRepeat = "no-repeat";
+                shr.backgroundPosition = "center";
+            };
+        } else {
+            thumbnailElement.style.backgroundImage = null;
+        }
+        }
+    });
+    function required(inputbix){
+        if (inputbix.value.length == 0){
+            inputbix.style.borderColor = 'red'
+        }else{
+            inputbix.style.borderColor = 'black'
+        }
+        return console.error;
+    }
+    var headline = document.getElementById('id_headline')
+        var category = document.getElementById('id_category')
+        var body = document.getElementById('id_body');
+        var li = [headline,category,body]
+    function publishBtnSub(formName){
+        li.forEach(it => {
+            required(it)
+        });
+        document.forms[formName].submit();
+    };
+    </script>
+    <script>
+        var headline = document.getElementById('id_headline')
+        var category = document.getElementById('id_category')
+        var body = document.getElementById('id_body');
+        let currentTimebx = document.getElementById('current_check');
+        let cont_date = document.querySelector('.dateNow')
+        let set_cont = document.querySelector('.set-time-cont')
+        let set_date = document.getElementById('date_published');
+        let set_time = document.getElementById('time_sche');
+        var date = new Date()
+        var list_months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        var month = list_months[date.getUTCMonth()]
+
+        var day = date.getUTCDate()
+        var year = date.getUTCFullYear()
+     
+        function formatAMPM(date) {
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+            minutes = minutes < 10 ? '0'+minutes : minutes;
+            var strTime = hours + ':' + minutes + ' ' + ampm;
+            return strTime;
+        }
+        var date_num = `${year}-${date.getMonth()+1}-${day} ${date.getHours()}:${date.getMinutes()}`
+        var full_date = `${month} ${day}, ${year} || ${formatAMPM(date)}`
+        var time_sched = document.getElementById('time_sched');
+        var date_pub = document.getElementById('date_published');
+        headline.placeholder='Headline/Title/Article Title'
+        category.placeholder='Category'
+        body.placeholder='Content / Article'
+        cont_date.innerHTML = full_date
+        currentTimebx.value = date_num
+        function setandNow(){
+        if (currentTimebx.checked == true){
+            cont_date.innerHTML = full_date
+            set_cont.style.color = '#888888'
+            set_date.disabled = true
+            set_time.disabled = true
+            currentTimebx.value = date_num
+        }else{
+            cont_date.style.color = '#888888'
+            set_date.disabled = false
+            set_time.disabled = false
+            set_cont.style.color = '#505050'
+            currentTimebx.value = `${date_pub.value} ${time_sched.value}`
+        }
+    }
+
+    </script>
+            
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends "News_web/layout.html" %}
+{% load static %}
+{% block title %}
+    Home | News
+{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/index_css.css' %}"/>        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+
+{% endblock %}
+{% block body %}
+    <div class="gen-body-cont">
+        <div class="latest-top">
+            <div class="focus-cont" id="focus-cont">
+                <div id="next" >
+                    <img id="icon-arrow right" class="icon-arrow right" src="{% static '/front_images/arrow_side.svg' %}" alt=""></img>
+                </div>
+                <div id="prev">
+                    <img id="icon-arrow left" class="icon-arrow left" src="{% static '/front_images/arrow_side.svg' %}" alt=""></img>
+                </div>
+                <div id="photoholder"class="phot-cont">
+                    
+                </div>
+            </div>
+            <div class="text-cont" id="text-cont">
+                <!-- Container of Trending Content -->
+                <div id="texts-holder" class="texts-holder">
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="container-down">
+            <div class="section-left">
+                <div class="alatest cont">
+                    <h1>Latest.</h1>
+                    <div class="slide-container"id='aLatest-cont'>
+        
+                    </div>
+                </div>
+                <div class="anews cont">
+                    <h1>News</h1>
+                    <div class="slide-container" id="aNews-cont">
+                        
+                    </div>
+                </div>
+                
+                <div class="aentertainment cont">
+                    <h1>Entertainment</h1>
+                    <div class="slide-container" id="aEntertainment-cont">
+                        
+                    </div>
+                </div>
+                <div class="aeditorial cont">
+                    <h1>Opinions</h1>
+                    <div class="slide-container" id="aEditorial-cont">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="section-right">
+                <div class="changeable">
+                    <h1>COVID-19</h1>
+                    <h2>Update</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{% static 'home_stacker.js' %}"></script>
+    
+    <script src="{% static 'util-anim.js' %}"></script>
+</div>
+
+{% endblock %}

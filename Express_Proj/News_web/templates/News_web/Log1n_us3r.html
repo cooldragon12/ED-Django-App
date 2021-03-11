@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/log1n_style_42.css' %}">
+        <link rel="shortcut icon" href="{% static 'front_images/favicon.ico' %}" type="image/x-icon">
+        <title>ExpDas | Login</title>
+    </head>
+    <body>
+            <div id="main_vak">
+                <div class="back_logo" style="background-image: url('{% static '/front_images/X1.png' %}');"></div>
+                <div class="container_form">
+                    <form method="post" action="{% url 'personel_log' %}" id="form_au">
+                        {% csrf_token %}
+
+                        <h1 class="headtitle_login">WELCOME<h2>Journalist</h2></h1>
+                        <p>{{ error }}</p>
+                        
+                        <div class="username-cont">
+                            <!-- <span class="label-up">Email or Username</span> -->
+                            {{ form.username }}
+                        </div>
+
+                        <div class="password-cont">
+                            <!-- <span class="label-up">Password</span> -->
+                            {{ form.password }}
+                        </div>
+                        <button type="submit" class="but-ani"><span>LOG IN</span></button>
+                    </form>
+                </div>
+            </div>
+            <script>
+                var labeled = document.querySelectorAll('.label-up');
+                var form_fields = document.getElementsByTagName('input')
+                let pl1 =form_fields[1].placeholder='Email or Username'
+                form_fields[2].placeholder='Password'
+                form_fields[1].id = 'id_username'
+                form_fields[2].id = 'id_password'
+
+            </script>
+    </body>
+</html>
+
+
+
+   

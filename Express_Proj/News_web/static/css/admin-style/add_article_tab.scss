@@ -1,0 +1,400 @@
+$veryLight: #E1E1E1;
+$littleGray: #888888;
+$mchGray: #717171;
+$darkergray: #505050;
+$darkergrey_op:rgba(97, 97, 97, 0.493);
+$lightred:#E2494B;
+$darkerred:#C63E40;
+$mainred:#D53436;
+$box_shadow:rgb(171, 169, 169);
+$lighter:#ececec ;
+
+.ms-cont-back {
+    width: 100%;
+    height: 100%;
+    background-color: $darkergrey_op;
+    position: absolute;
+    top: 0;
+    z-index: 3;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility .3s, opacity .6s;
+}
+
+.compose-container{
+    position: absolute;
+    background-color: $veryLight;
+    width: 40vw;
+    height: 70vh;
+    border-radius: 1rem;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility .3s, opacity .6s;
+    .title-ms{
+        width: 100%;
+        position: relative;
+        height: 10vh;
+        background-color: $darkergray;
+        display: flex;
+        justify-content: left;
+        border-radius: 1rem 1rem 0 0;
+        h2{
+            color: $veryLight;
+            margin-left: 2rem;
+        }
+    }
+    .ms-closer{
+        width: 1rem;
+        height: 1rem;
+        color: $veryLight;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        padding: .5rem;
+        border-radius: 1rem;
+        &:hover{
+            background-color: $littleGray;
+            
+        }
+    }
+
+    .page-article{
+        width: 50%;
+        height: 100%;
+        align-items: center;
+        transition: margin-left .5s;
+    }
+    .page-media{
+        width: 50%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        transition: margin-left .5s;
+    }
+    .post-scheduler-cont{
+        width: 100%;
+        height: 100%;
+        background-color: #6363632b;
+        overflow: hidden;
+        position: absolute;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity .3s ease-in-out;
+        .back-sched{
+            width: 60%;
+            height: 70%;
+            position: absolute;
+            background-color: #DBDBDB;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1rem;
+            margin-bottom: -7rem;
+            transition: margin-bottom .2s ease-in-out;
+            .cont-sche{
+                width: 80%;
+                height: 80%;
+                display: flex;
+                align-items: left;
+                
+                flex-direction: column;
+                //Label
+                .label_current_time{
+                    font-size: 15px;
+                    font-weight: bold;
+                    width: 90%;
+                }
+                //Items
+                .currenTime-cont{
+                    display: flex;
+                    flex-wrap: wrap;
+                    
+                    width: 100%;
+                    height: 25%;
+                    #current_check{
+                        outline: none;
+                        
+                        &:checked{
+                            background-color: $mainred;
+                            color: $mainred;
+                        }
+
+                    }
+                    .dateNow{
+                        font-size: .7rem;
+                        font-weight: normal;
+                        color: $darkergray;
+                        width: 65%;
+                        margin-top: none;
+                        margin-bottom: none;
+                    }
+                
+                }
+                .set-time-cont{
+                    display: flex;
+                    flex-direction: column;
+                    color: $darkergray;
+                    #date_published, #time_sche{
+                        margin-bottom: 1rem;
+                        outline: none;
+                        border-color: $littleGray;
+                        border-style: solid;
+                        border-radius: .4rem;
+                        border-width: 1px;
+                        padding: .5rem;
+                        background-color: #f0f0f0;
+                    }
+                }
+                .p-submit{
+                    background-color: $mainred;
+                    color: $veryLight;
+                    width: 25%;
+                    height: 2rem;
+                    border-radius: .3rem;
+                    font-size: .8rem;
+                    font-weight: bold;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    
+                    transition: background-color .5s;
+                    &:hover{
+                        background-color: $darkergray;
+                        cursor: pointer;
+                    }
+                }
+            }
+           
+        }
+    }
+
+    .article-title, .content-art, .photo-container{
+        margin: 1.5rem;
+        flex-wrap: wrap;
+        border: 1px;
+        
+    }
+
+    .article-title{
+        #id_headline{
+            outline: none;
+            border: none;
+            border-radius: .4rem;
+            padding: .5rem;
+            width: 95%;
+            background-color: $lighter;
+            border-style: solid;
+                        border-width: 1px;
+                        border-color: $littleGray;
+            &:focus{
+                box-shadow: 1px 0px 10px 1px $box_shadow;
+            }
+        }
+        #id_category{
+            outline: none;
+            border: none;
+            padding:.5rem;
+            width:40%;
+            background-color: $lighter;
+            border-radius: .4rem;
+            margin-bottom: 1rem;
+            border-style: solid;
+                        border-width: 1px;
+                        border-color: $littleGray;
+            &:focus{
+                box-shadow: 1px 0px 10px 1px $box_shadow;
+            }
+        }
+     
+    }
+    .content-art{
+        margin-bottom: 2rem;
+        #id_body{
+            background-color: $lighter;
+            resize: none;
+            width: 95%;
+            height: 80%;
+            outline: none;
+            border: none;
+            border-radius: .5rem;
+            border-style: solid;
+                        border-width: 1px;
+                        border-color: $littleGray;
+            padding: .5rem;
+            transform-style: none;
+            &:focus{
+                box-shadow: 1px 0px 10px 1px $box_shadow;
+            }
+        }
+    }
+    .bttn-section{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 2rem;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin-top: .5rem;
+        .bttn{
+            background-color: $mainred;
+            position: absolute;
+            color: $veryLight;
+            width: 25%;
+            height: 2rem;
+            border-radius: .3rem;
+            font-size: .8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            right: 1.5rem;
+            transition: background-color .5s;
+            &:hover{
+                background-color: $darkergray;
+                cursor: pointer;
+            }
+        }
+        .p-next{
+            position: absolute;
+        }
+        .p-previous{
+            position: absolute;
+            left: 1.5rem;
+
+        }
+        .schedBtn{
+            width: 2rem;
+            transition: background-color .3s;
+            padding: .5rem;
+            border-radius: 2rem;
+            cursor: pointer;
+            &:hover{
+                background-color:#d0cfcf;
+            }
+        }
+    }
+    
+    
+}
+
+#backBtn{
+    transform: rotate(90deg);
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: .5rem;
+    cursor: pointer;
+    &:hover{
+        border-radius: 1rem;
+        background-color: $veryLight;
+    }
+}
+
+.compose-container form{
+    display: flex;
+    width: 200%;
+    overflow: hidden;
+    height: 200%;
+    
+}
+
+
+#photo-container{
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    width: 25rem;
+    height: 12rem;
+    background-color: $veryLight;
+    align-items: center;
+    justify-content: center;
+    border-style: solid;
+    border-width: 4px;
+    border-color: $littleGray;
+    margin: 0;
+    border-radius: 1rem;
+    cursor: pointer;
+    #output {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #cccccc;
+        background-size: contain;
+        position: absolute;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    #output::after {
+        content: attr(data-label);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 5px 0;
+        color: #ffffff;
+        background: rgba(0, 0, 0, 0.75);
+        font-size: 14px;
+        text-align: center;
+    }
+    #fileElem{
+        display: none;
+    }
+    .promt-input{
+        cursor: pointer;
+        color: $littleGray;
+        font-family: 'Segoe UI';
+        font-weight: bold;
+    }
+}
+.addtnl-photos{
+    width: 25rem;
+    height: 20%;
+    border-radius: 1rem;
+    background-color: #DBDBDB;
+    margin-top: 5px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: start;
+    .contain-add{
+        background-color: #c6c6c6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 4rem;
+        height: 4rem;
+        margin-left: 5px;
+        border-radius: 1rem;
+        .photo-add{
+            width: 1.5rem;
+            height: 3rem;
+
+        }
+    }
+}
+.ms-active{
+    visibility: visible;
+    opacity: 1;
+}
+.msactive1{
+    visibility: visible;
+    opacity: 1;
+}
