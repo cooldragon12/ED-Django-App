@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
-# 
+#
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -84,7 +84,7 @@ REST_FRAMEWORK = {
 }
 
 #User Model
-AUTH_USER_MODEL = "News_web.Author" 
+AUTH_USER_MODEL = "News_web.Author"
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -169,3 +169,4 @@ STATICFILES_DIRS = [
 
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# DEFAULT_FILE_STORAGE = 'C:/News_web/'

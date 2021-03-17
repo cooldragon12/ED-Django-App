@@ -45,6 +45,7 @@ body {
 
 .nvbars .side .compose_bttn {
   display: block;
+  cursor: pointer;
   font-weight: bold;
   text-align: center;
   text-decoration: none;

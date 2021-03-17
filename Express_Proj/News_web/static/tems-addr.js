@@ -20,8 +20,6 @@ function goBack() {
 }
 
 
-nextTrend.
-
 bttonComp.addEventListener('click', ()=>{
     composer.classList.add('msactive1')
     vicomp.style.visibility = 'visible';

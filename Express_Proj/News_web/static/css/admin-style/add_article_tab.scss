@@ -13,23 +13,20 @@ $lighter:#ececec ;
     width: 100%;
     height: 100%;
     background-color: $darkergrey_op;
-    position: absolute;
+    position: fixed;
     top: 0;
     z-index: 3;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
     visibility: hidden;
     opacity: 0;
     transition: visibility .3s, opacity .6s;
 }
 
 .compose-container{
-    position: absolute;
+    position: relative;
     background-color: $veryLight;
-    width: 40vw;
+    width: 60vw;
     height: 70vh;
-    border-radius: 1rem;
+    border-radius: 5px;
     z-index: 5;
     display: flex;
     flex-direction: column;
@@ -47,7 +44,7 @@ $lighter:#ececec ;
         background-color: $darkergray;
         display: flex;
         justify-content: left;
-        border-radius: 1rem 1rem 0 0;
+        border-radius: 5px 5px 0 0;
         h2{
             color: $veryLight;
             margin-left: 2rem;
@@ -67,180 +64,212 @@ $lighter:#ececec ;
             
         }
     }
-
-    .page-article{
-        width: 50%;
-        height: 100%;
-        align-items: center;
-        transition: margin-left .5s;
-    }
-    .page-media{
-        width: 50%;
-        height: 100%;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        flex-direction: column;
-        transition: margin-left .5s;
-    }
-    .post-scheduler-cont{
-        width: 100%;
-        height: 100%;
-        background-color: #6363632b;
-        overflow: hidden;
-        position: absolute;
-        
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity .3s ease-in-out;
-        .back-sched{
-            width: 60%;
-            height: 70%;
-            position: absolute;
-            background-color: #DBDBDB;
+    #publishNew{
+    
+            width: 100%;
+            height: 100%;
+        .slide-cont{
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border-radius: 1rem;
-            margin-bottom: -7rem;
-            transition: margin-bottom .2s ease-in-out;
-            .cont-sche{
-                width: 80%;
-                height: 80%;
+            flex-direction: row;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            .slides{
+                min-width: 100%;
+                height: 100%;
+                position: relative;
+                
+            }
+            .page-article{
                 display: flex;
-                align-items: left;
-                
+                justify-content: center;
                 flex-direction: column;
-                //Label
-                .label_current_time{
-                    font-size: 15px;
-                    font-weight: bold;
-                    width: 90%;
-                }
-                //Items
-                .currenTime-cont{
-                    display: flex;
-                    flex-wrap: wrap;
-                    
-                    width: 100%;
-                    height: 25%;
-                    #current_check{
-                        outline: none;
-                        
-                        &:checked{
-                            background-color: $mainred;
-                            color: $mainred;
-                        }
-
-                    }
-                    .dateNow{
-                        font-size: .7rem;
-                        font-weight: normal;
-                        color: $darkergray;
-                        width: 65%;
-                        margin-top: none;
-                        margin-bottom: none;
-                    }
+                position: relative;
+    
+            }
+            .page-media{
+                align-items: center;
+                justify-content: center;
+                display: flex;
+                flex-direction: column;
+            }
+            .post-scheduler-cont{
+                width: 100%;
+                height: 100%;
+                background-color: #6363632b;
+                overflow: hidden;
+                position:relative;
                 
-                }
-                .set-time-cont{
+                display: none;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity .3s ease-in-out;
+                .back-sched{
+                    width: 60%;
+                    height: 70%;
+                    position: absolute;
+                    background-color: #DBDBDB;
                     display: flex;
                     flex-direction: column;
-                    color: $darkergray;
-                    #date_published, #time_sche{
-                        margin-bottom: 1rem;
-                        outline: none;
-                        border-color: $littleGray;
-                        border-style: solid;
-                        border-radius: .4rem;
-                        border-width: 1px;
-                        padding: .5rem;
-                        background-color: #f0f0f0;
-                    }
-                }
-                .p-submit{
-                    background-color: $mainred;
-                    color: $veryLight;
-                    width: 25%;
-                    height: 2rem;
-                    border-radius: .3rem;
-                    font-size: .8rem;
-                    font-weight: bold;
-                    display: flex;
                     align-items: center;
                     justify-content: center;
-                    
-                    transition: background-color .5s;
-                    &:hover{
-                        background-color: $darkergray;
-                        cursor: pointer;
+                    border-radius: 1rem;
+                    margin-bottom: -7rem;
+                    transition: margin-bottom .2s ease-in-out;
+                    .cont-sche{
+                        width: 80%;
+                        height: 80%;
+                        display: flex;
+                        align-items: left;
+                        
+                        flex-direction: column;
+                        //Label
+                        .label_current_time{
+                            font-size: 15px;
+                            font-weight: bold;
+                            width: 90%;
+                        }
+                        //Items
+                        .currenTime-cont{
+                            display: flex;
+                            flex-wrap: wrap;
+                            
+                            width: 100%;
+                            height: 25%;
+                            #current_check{
+                                outline: none;
+                                
+                                &:checked{
+                                    background-color: $mainred;
+                                    color: $mainred;
+                                }
+        
+                            }
+                            .dateNow{
+                                font-size: .7rem;
+                                font-weight: normal;
+                                color: $darkergray;
+                                width: 65%;
+                                margin-top: none;
+                                margin-bottom: none;
+                            }
+                        
+                        }
+                        .set-time-cont{
+                            display: flex;
+                            flex-direction: column;
+                            color: $darkergray;
+                            #date_published, #time_sche{
+                                margin-bottom: 1rem;
+                                outline: none;
+                                border-color: $littleGray;
+                                border-style: solid;
+                                border-radius: .4rem;
+                                border-width: 1px;
+                                padding: .5rem;
+                                background-color: #f0f0f0;
+                            }
+                        }
+                        .p-submit{
+                            background-color: $mainred;
+                            color: $veryLight;
+                            width: 25%;
+                            height: 2rem;
+                            border-radius: .3rem;
+                            font-size: .8rem;
+                            font-weight: bold;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            
+                            transition: background-color .5s;
+                            &:hover{
+                                background-color: $darkergray;
+                                cursor: pointer;
+                            }
+                        }
                     }
+                   
                 }
             }
-           
         }
     }
 
-    .article-title, .content-art, .photo-container{
+    .photo-container{
         margin: 1.5rem;
-        flex-wrap: wrap;
+ 
         border: 1px;
         
     }
 
     .article-title{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 20%;
         #id_headline{
             outline: none;
             border: none;
             border-radius: .4rem;
             padding: .5rem;
-            width: 95%;
+            width: 65%;
             background-color: $lighter;
+            transition: box-shadow 0.3s;
             border-style: solid;
                         border-width: 1px;
                         border-color: $littleGray;
             &:focus{
-                box-shadow: 1px 0px 10px 1px $box_shadow;
+                box-shadow: 0px 10px 30px -15px $lightred;
             }
         }
         #id_category{
             outline: none;
             border: none;
             padding:.5rem;
-            width:40%;
+            margin-right: 10%;
+            width:20%;
             background-color: $lighter;
             border-radius: .4rem;
-            margin-bottom: 1rem;
+            transition: box-shadow 0.3s;
+
             border-style: solid;
                         border-width: 1px;
                         border-color: $littleGray;
             &:focus{
-                box-shadow: 1px 0px 10px 1px $box_shadow;
+                box-shadow: 0px 10px 30px -15px $lightred;
+
             }
         }
      
     }
     .content-art{
-        margin-bottom: 2rem;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        width: 100%;
+        height: 80%;
         #id_body{
             background-color: $lighter;
             resize: none;
             width: 95%;
-            height: 80%;
+            height: 95%;
             outline: none;
             border: none;
             border-radius: .5rem;
             border-style: solid;
+            transition: box-shadow 0.3s;
+
                         border-width: 1px;
                         border-color: $littleGray;
             padding: .5rem;
             transform-style: none;
             &:focus{
-                box-shadow: 1px 0px 10px 1px $box_shadow;
+                box-shadow: 0px 10px 30px -15px $lightred;
+
             }
         }
     }
@@ -248,14 +277,13 @@ $lighter:#ececec ;
         display: flex;
         flex-direction: row;
         width: 100%;
-        height: 2rem;
+        height: 3rem;
         align-items: center;
         justify-content: center;
         position: relative;
-        margin-top: .5rem;
         .bttn{
             background-color: $mainred;
-            position: absolute;
+
             color: $veryLight;
             width: 25%;
             height: 2rem;
@@ -266,17 +294,17 @@ $lighter:#ececec ;
             align-items: center;
             justify-content: center;
             right: 1.5rem;
-            transition: background-color .5s;
+            transition: background-color 200ms, box-shadow 150ms ;
             &:hover{
                 background-color: $darkergray;
                 cursor: pointer;
+                box-shadow: 0px 10px 30px -15px $lightred;
+
             }
         }
-        .p-next{
-            position: absolute;
-        }
+
         .p-previous{
-            position: absolute;
+        
             left: 1.5rem;
 
         }
@@ -305,14 +333,6 @@ $lighter:#ececec ;
         border-radius: 1rem;
         background-color: $veryLight;
     }
-}
-
-.compose-container form{
-    display: flex;
-    width: 200%;
-    overflow: hidden;
-    height: 200%;
-    
 }
 
 

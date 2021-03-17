@@ -2,7 +2,7 @@
   width: 100%;
   height: 100%;
   background-color: rgba(97, 97, 97, 0.493);
-  position: absolute;
+  position: fixed;
   top: 0;
   z-index: 3;
   visibility: hidden;
@@ -12,11 +12,11 @@
 }
 
 .compose-container {
-  position: absolute;
+  position: relative;
   background-color: #E1E1E1;
-  width: 40vw;
+  width: 60vw;
   height: 70vh;
-  border-radius: 1rem;
+  border-radius: 5px;
   z-index: 5;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -47,7 +47,7 @@
   -webkit-box-pack: left;
       -ms-flex-pack: left;
           justify-content: left;
-  border-radius: 1rem 1rem 0 0;
+  border-radius: 5px 5px 0 0;
 }
 
 .compose-container .title-ms h2 {
@@ -70,19 +70,45 @@
   background-color: #888888;
 }
 
-.compose-container .page-article {
-  width: 50%;
+.compose-container #publishNew {
+  width: 100%;
   height: 100%;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-transition: margin-left .5s;
-  transition: margin-left .5s;
 }
 
-.compose-container .page-media {
-  width: 50%;
+.compose-container #publishNew .slide-cont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
   height: 100%;
+  position: relative;
+}
+
+.compose-container #publishNew .slide-cont .slides {
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.compose-container #publishNew .slide-cont .page-article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+.compose-container #publishNew .slide-cont .page-media {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -96,19 +122,15 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-transition: margin-left .5s;
-  transition: margin-left .5s;
 }
 
-.compose-container .post-scheduler-cont {
+.compose-container #publishNew .slide-cont .post-scheduler-cont {
   width: 100%;
   height: 100%;
   background-color: #6363632b;
   overflow: hidden;
-  position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  position: relative;
+  display: none;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -121,7 +143,7 @@
   transition: opacity .3s ease-in-out;
 }
 
-.compose-container .post-scheduler-cont .back-sched {
+.compose-container #publishNew .slide-cont .post-scheduler-cont .back-sched {
   width: 60%;
   height: 70%;
   position: absolute;
@@ -145,7 +167,7 @@
   transition: margin-bottom .2s ease-in-out;
 }
 
-.compose-container .post-scheduler-cont .back-sched .cont-sche {
+.compose-container #publishNew .slide-cont .post-scheduler-cont .back-sched .cont-sche {
   width: 80%;
   height: 80%;
   display: -webkit-box;
@@ -160,13 +182,13 @@
           flex-direction: column;
 }
 
-.compose-container .post-scheduler-cont .back-sched .cont-sche .label_current_time {
+.compose-container #publishNew .slide-cont .post-scheduler-cont .back-sched .cont-sche .label_current_time {
   font-size: 15px;
   font-weight: bold;
   width: 90%;
 }
 
-.compose-container .post-scheduler-cont .back-sched .cont-sche .currenTime-cont {
+.compose-container #publishNew .slide-cont .post-scheduler-cont .back-sched .cont-sche .currenTime-cont {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -176,16 +198,16 @@
   height: 25%;
 }
 
-.compose-container .post-scheduler-cont .back-sched .cont-sche .currenTime-cont #current_check {
+.compose-container #publishNew .slide-cont .post-scheduler-cont .back-sched .cont-sche .currenTime-cont #current_check {
   outline: none;
 }
 
-.compose-container .post-scheduler-cont .back-sched .cont-sche .currenTime-cont #current_check:checked {
+.compose-container #publishNew .slide-cont .post-scheduler-cont .back-sched .cont-sche .currenTime-cont #current_check:checked {
   background-color: #D53436;
   color: #D53436;
 }
 
-.compose-container .post-scheduler-cont .back-sched .cont-sche .currenTime-cont .dateNow {
+.compose-container #publishNew .slide-cont .post-scheduler-cont .back-sched .cont-sche .currenTime-cont .dateNow {
   font-size: .7rem;
   font-weight: normal;
   color: #505050;
@@ -194,7 +216,7 @@
   margin-bottom: none;
 }
 
-.compose-container .post-scheduler-cont .back-sched .cont-sche .set-time-cont {
+.compose-container #publishNew .slide-cont .post-scheduler-cont .back-sched .cont-sche .set-time-cont {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -205,7 +227,7 @@
   color: #505050;
 }
 
-.compose-container .post-scheduler-cont .back-sched .cont-sche .set-time-cont #date_published, .compose-container .post-scheduler-cont .back-sched .cont-sche .set-time-cont #time_sche {
+.compose-container #publishNew .slide-cont .post-scheduler-cont .back-sched .cont-sche .set-time-cont #date_published, .compose-container #publishNew .slide-cont .post-scheduler-cont .back-sched .cont-sche .set-time-cont #time_sche {
   margin-bottom: 1rem;
   outline: none;
   border-color: #888888;
@@ -216,7 +238,7 @@
   background-color: #f0f0f0;
 }
 
-.compose-container .post-scheduler-cont .back-sched .cont-sche .p-submit {
+.compose-container #publishNew .slide-cont .post-scheduler-cont .back-sched .cont-sche .p-submit {
   background-color: #D53436;
   color: #E1E1E1;
   width: 25%;
@@ -237,16 +259,32 @@
   transition: background-color .5s;
 }
 
-.compose-container .post-scheduler-cont .back-sched .cont-sche .p-submit:hover {
+.compose-container #publishNew .slide-cont .post-scheduler-cont .back-sched .cont-sche .p-submit:hover {
   background-color: #505050;
   cursor: pointer;
 }
 
-.compose-container .article-title, .compose-container .content-art, .compose-container .photo-container {
+.compose-container .photo-container {
   margin: 1.5rem;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   border: 1px;
+}
+
+.compose-container .article-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 20%;
 }
 
 .compose-container .article-title #id_headline {
@@ -254,49 +292,71 @@
   border: none;
   border-radius: .4rem;
   padding: .5rem;
-  width: 95%;
+  width: 65%;
   background-color: #ececec;
+  -webkit-transition: -webkit-box-shadow 0.3s;
+  transition: -webkit-box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s, -webkit-box-shadow 0.3s;
   border-style: solid;
   border-width: 1px;
   border-color: #888888;
 }
 
 .compose-container .article-title #id_headline:focus {
-  -webkit-box-shadow: 1px 0px 10px 1px #aba9a9;
-          box-shadow: 1px 0px 10px 1px #aba9a9;
+  -webkit-box-shadow: 0px 10px 30px -15px #E2494B;
+          box-shadow: 0px 10px 30px -15px #E2494B;
 }
 
 .compose-container .article-title #id_category {
   outline: none;
   border: none;
   padding: .5rem;
-  width: 40%;
+  margin-right: 10%;
+  width: 20%;
   background-color: #ececec;
   border-radius: .4rem;
-  margin-bottom: 1rem;
+  -webkit-transition: -webkit-box-shadow 0.3s;
+  transition: -webkit-box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s, -webkit-box-shadow 0.3s;
   border-style: solid;
   border-width: 1px;
   border-color: #888888;
 }
 
 .compose-container .article-title #id_category:focus {
-  -webkit-box-shadow: 1px 0px 10px 1px #aba9a9;
-          box-shadow: 1px 0px 10px 1px #aba9a9;
+  -webkit-box-shadow: 0px 10px 30px -15px #E2494B;
+          box-shadow: 0px 10px 30px -15px #E2494B;
 }
 
 .compose-container .content-art {
-  margin-bottom: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 80%;
 }
 
 .compose-container .content-art #id_body {
   background-color: #ececec;
   resize: none;
   width: 95%;
-  height: 80%;
+  height: 95%;
   outline: none;
   border: none;
   border-radius: .5rem;
   border-style: solid;
+  -webkit-transition: -webkit-box-shadow 0.3s;
+  transition: -webkit-box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s, -webkit-box-shadow 0.3s;
   border-width: 1px;
   border-color: #888888;
   padding: .5rem;
@@ -305,8 +365,8 @@
 }
 
 .compose-container .content-art #id_body:focus {
-  -webkit-box-shadow: 1px 0px 10px 1px #aba9a9;
-          box-shadow: 1px 0px 10px 1px #aba9a9;
+  -webkit-box-shadow: 0px 10px 30px -15px #E2494B;
+          box-shadow: 0px 10px 30px -15px #E2494B;
 }
 
 .compose-container .bttn-section {
@@ -318,7 +378,7 @@
       -ms-flex-direction: row;
           flex-direction: row;
   width: 100%;
-  height: 2rem;
+  height: 3rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -326,12 +386,10 @@
       -ms-flex-pack: center;
           justify-content: center;
   position: relative;
-  margin-top: .5rem;
 }
 
 .compose-container .bttn-section .bttn {
   background-color: #D53436;
-  position: absolute;
   color: #E1E1E1;
   width: 25%;
   height: 2rem;
@@ -348,21 +406,20 @@
       -ms-flex-pack: center;
           justify-content: center;
   right: 1.5rem;
-  -webkit-transition: background-color .5s;
-  transition: background-color .5s;
+  -webkit-transition: background-color 200ms, -webkit-box-shadow 150ms;
+  transition: background-color 200ms, -webkit-box-shadow 150ms;
+  transition: background-color 200ms, box-shadow 150ms;
+  transition: background-color 200ms, box-shadow 150ms, -webkit-box-shadow 150ms;
 }
 
 .compose-container .bttn-section .bttn:hover {
   background-color: #505050;
   cursor: pointer;
-}
-
-.compose-container .bttn-section .p-next {
-  position: absolute;
+  -webkit-box-shadow: 0px 10px 30px -15px #E2494B;
+          box-shadow: 0px 10px 30px -15px #E2494B;
 }
 
 .compose-container .bttn-section .p-previous {
-  position: absolute;
   left: 1.5rem;
 }
 
@@ -391,15 +448,6 @@
 #backBtn:hover {
   border-radius: 1rem;
   background-color: #E1E1E1;
-}
-
-.compose-container form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 200%;
-  overflow: hidden;
-  height: 200%;
 }
 
 #photo-container {
