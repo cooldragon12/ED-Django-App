@@ -1,0 +1,64 @@
+<svg id="tilod" data-name="tilod" xmlns="http://www.w3.org/2000/svg" width="100px" height="100px" viewBox="-30 -30 150 150"><defs><style>.cls-1{fill:#353535;}.cls-3{fill:#bf3838;}</style></defs><title>X Logo [Converted]</title>
+<path class="cls-1" d="M48.43,32.05s8.47-11.29,14-19.86c3.22-5,5.9-9.63,16.46-9.63H97.1L65.64,51l31.88,47H78.78c-7.73,0-12-5.35-15.44-9.86C56.87,79.64,48.28,68.7,48.28,68.7L33.9,51Z" transform="translate(0 0)">
+    <animateTransform id="anima1"
+        attributeName="transform"
+        attributeType="XML"
+        type="translate"
+        begin="1s; animb1.end"
+        dur="2s"
+        values="100,0;0,0;0,0"
+        />
+    <animateTransform id="animb1"
+        attributeName="transform"
+        attributeType="XML"
+        type="rotate"
+        begin="anima1.end"
+        dur="4s"
+        from="0 50 50"
+        to="360 50 50"
+
+        />
+    <animate id="animb4"
+        attributeName="opacity"
+        attributeType="XML"
+        begin="1s"
+        dur="1s"
+        from="0"
+        to="1"
+        fill="freeze"
+
+        />
+
+    
+</path>
+<path class="cls-3" d="M51.58,31.59s-8.48-11.28-14-19.86c-3.22-5-5.9-9.63-16.46-9.63H2.9L34.36,50.55,2.48,97.6H21.22c7.73,0,12-5.35,15.44-9.86,6.47-8.56,15.06-19.49,15.06-19.49L66.1,50.55Z" transform="translate(0 0)">
+    <animateTransform id="anima2"
+        attributeName="transform"
+        attributeType="XML"
+        type="translate"
+        begin="1s; animb2.end"
+        dur="2s"
+        values="-100,0;0,0;0,0"
+    />
+    <animateTransform id="animb2"
+        attributeName="transform"
+        attributeType="XML"
+        type="rotate"
+        begin="anima2.end"
+        dur="2s"
+        from="0 50 50"
+        to="360 50 50"
+   
+        />
+    <animate id="animb3"
+        attributeName="opacity"
+        attributeType="XML"
+        begin="1s"
+        dur="1s"
+        from="0"
+        to="1"
+        fill="freeze"
+
+        />
+</path>
+</svg>

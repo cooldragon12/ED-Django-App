@@ -73,9 +73,6 @@ class SwipeScroll {
 const container = document.getElementById('aNews-cont');
 new SwipeScroll(container);
 
-
-var getSlides = () => document.querySelectorAll('.slide-photo');
-var getTexts = ()=> document.querySelectorAll('.parent-cons')
 const nextFunction = () => {
 	var photoSlides = document.querySelectorAll('.slide-photo');
 	var textSlides = document.querySelectorAll('.parent-cons');

@@ -1,0 +1,4 @@
+.bash_profile
+django-pp-key.pem
+django-pait-key.pem
+venv

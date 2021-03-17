@@ -84,15 +84,15 @@
 
         function create_new() {
             var tmplt = `
-            <div class="ms-cont-back ms-active" id="ms-cont-back"></div>
+            <div class="ms-cont-back ms-active" id="ms-cont-back" onclick="closeTrig()"></div>
     <div class="compose-container msactive1" id="compose-container" aria-modal="true">
         <div class="title-ms">
             <h2>Create New Article</h2>
-            <img src="{% static '/front_images/close.svg' %}" alt="" id="ms-closer" class="ms-closer">
+            <img src="{% static '/front_images/close.svg' %}" alt="" id="ms-closer" class="ms-closer" onclick="closeTrig()">
         </div>
 
         <form action="{% url 'create_new' %}" method="post" name="publishNew" id="publishNew">
-            <!--{% csrf_token %} --!>
+            {% csrf_token %}
             <div class="slide-cont" id="slide-cont">
                 <div class="page-article slides">
                     <div class="article-title">
@@ -100,13 +100,13 @@
                     <select name="category" class="id_category" id="id_category">
 
                     </select>
-                    <input type="text" name="headline" maxlength="255" autocomplete="off" required id="id_headline"class="id_headline" placeholder="Headline / Title of Article">
+                    <input type="text" name="headline" maxlength="255" autocomplete="disable" required id="id_headline"class="id_headline" placeholder="Headline / Title of Article">
                     </div>
                     <div class="content-art">
                         <textarea name="body" cols="40" rows="10" required id="id_body"  placeholder="Article Contents"></textarea>
                     </div>
                     <div class="bttn-section"id="bttn-section">
-                        <div class="bttn p-next">NEXT</div>
+                        <div class="bttn p-next" onclick="nextFunction()">NEXT</div>
                     </div>
                 </div>
                 
@@ -122,7 +122,7 @@
                         </div>
                     </div>
                     <div class="bttn-section"id="bttn-section">
-                        <div class="bttn p-previous">PREVIOUS</div>
+                        <div class="bttn p-previous" onclick="prevFunction()">PREVIOUS</div>
                         <img src="{% static 'front_images/settings.svg' %}" alt="" id="schedBtn"class="schedBtn" onclick="openSched()">
                         <div onclick="publishBtnSub('publishNew')" class="bttn p-submit">PUBLISH</div>
                     </div>
@@ -130,7 +130,7 @@
                 <br>
                 <div class="post-scheduler-cont slides">
                     <div class="back-sched">
-                        <img src="{% static 'front_images/arrow_down.svg' %}" alt="" id="backBtn">
+                        <img src="{% static 'front_images/arrow_down.svg' %}" alt="" id="backBtn" onclick="closeSched()">
                         <div class="cont-sche">
                             <div class="currenTime-cont">
                                 <input type="checkbox" name="current_check" id="current_check" checked onclick="setandNow()">
@@ -151,9 +151,9 @@
         
     </div>
             `
-         
+
             if (!document.body.contains(document.getElementById('compose-container'))) {
-                
+
                 document.getElementById('ito').innerHTML += tmplt
                 var backs = document.getElementById('ms-cont-back')
                 backs.style.visibility = 'visible'
@@ -192,17 +192,52 @@
                     }
                 })
         }
+        var closeTrig = () => {
+            var back = document.getElementById('ms-cont-back').style
+            var comp = document.getElementById('compose-container').style
+            back.visibility = 'hidden'
+            back.opacity = '0'
+            comp.visibility = 'hidden'
+            comp.opacity = '0'
+
+
+        }
+    </script>
+    <script>
+        let index = 1;
+        const nextFunction = () => {
+            const photoSlider_cont = document.querySelector('.slide-cont');
+
+            var photoSlides = document.querySelectorAll('.slides');
+            var slidesViewLength = photoSlides[index].clientWidth;
+            photoSlider_cont.style.transition = 'transform .7s ease-out';
+            photoSlider_cont.style.transform = `translateX(${-slidesViewLength * index}px)`;
+        };
+        const prevFunction = () => {
+            const photoSlider_cont = document.querySelector('.slide-cont');
+
+            var photoSlides = document.querySelectorAll('.slides');
+            var slidesViewLength = photoSlides[index].clientWidth;
+            photoSlider_cont.style.transition = 'transform .5s ease-out';
+            photoSlider_cont.style.transform = `translateX(${slidesViewLength % index}px)`;
+        };
     </script>
     <script>
         let sched_cont_main = document.querySelector('.post-scheduler-cont');
         let sched_back = document.querySelector('.back-sched');
         let backBtn = document.getElementById('backBtn');
         function openSched() {
+            let sched_cont_main = document.querySelector('.post-scheduler-cont');
+        let sched_back = document.querySelector('.back-sched');
+        let backBtn = document.getElementById('backBtn');
             sched_cont_main.style.visibility = 'visible'
             sched_cont_main.style.opacity = '1'
             sched_back.style.marginBottom = "0";
         };
         var closeSched = () => {
+            let sched_cont_main = document.querySelector('.post-scheduler-cont');
+        let sched_back = document.querySelector('.back-sched');
+        let backBtn = document.getElementById('backBtn');
             sched_cont_main.style.visibility = 'hidden'
             sched_cont_main.style.opacity = '0'
             sched_back.style.marginBottom = "-7rem";
