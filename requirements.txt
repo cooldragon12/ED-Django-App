@@ -7,5 +7,5 @@ uuid
 MySQLClient
 Pillow
 django-mysql-rds
-
+django-storages
 
