@@ -1,4 +1,4 @@
-# Project-ExDa
+# Project: Express Dasma News Website
 Web Application for Express Dasmariñas.
 
 ## Description
